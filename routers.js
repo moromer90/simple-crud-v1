@@ -7,8 +7,11 @@ const loginController = require("./controllers/loginController");
 
 
 app.route("/user")
+
     .get(userController.getUser)
     .post(/*validation,*/userController.postUser)
+    .get(controller.getUser)
+    .post(controller.postUser)
          
 app.route("/user/:_id")
 //    .get(controller.getById)
