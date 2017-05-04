@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose =  require ('mongoose');
 const app = express();
-const controller = require("./controllers/userController");
+const userController = require("./controllers/userController");
+const loginController = require("./controllers/loginController");
 //const validation = require("./middleware");
 
 
 app.route("/user")
-    .get(controller.getUser)
+    .get(userController.getUser)
 //    .post(/*validation,*/controller.post)
          
 app.route("/:_id")
@@ -14,6 +15,8 @@ app.route("/:_id")
 //    .put(/*validation,*/controller.put)
 //    .delete(controller.delete)
 
+app.route("/login/:email/:pass")
+    .get(loginController.getByEmail)
 
 
 module.exports = app;
