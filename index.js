@@ -1,10 +1,21 @@
 'use-strict'
 const express = require('express');
 const mongoose =  require ('mongoose');
+const bodyparser =  require ('body-parser');
+const routers = require('./routers');
+var {ObjectID} = require ('mongodb');
 const mongodbRoute = 'mongodb://jose:jose@ds135820.mlab.com:35820/pruebanode';
 
 const app = express();
 const port = 3001;
+
+app.use(bodyparser.urlencoded({
+    extended:true
+}));
+
+app.use(bodyparser.json());
+
+app.use(routers);
 
 
 /*MONGODB*/
