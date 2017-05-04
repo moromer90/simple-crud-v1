@@ -5,7 +5,7 @@ const controller = require("./controllers/userController");
 //const validation = require("./middleware");
 
 
-app.route("/")
+app.route("/user")
     .get(controller.getUser)
 //    .post(/*validation,*/controller.post)
          
