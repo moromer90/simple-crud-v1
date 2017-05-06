@@ -8,11 +8,13 @@ exports.getByEmail = function (req,res) {
             return res.send("Error: "+ err.message);
         }
         
-        console.log("Hola "+user.name);
-        if(req.params.pass === user.pass){
-            return res.send(user);
+        console.log("User: "+user);
+        
+        if(user == ""){
+            return res.send("Email o contraseña incorrectos");
         }
-        return res.send("Contraseña incorrecta");
+        
+        return res.send(user);
     });
 }
 
