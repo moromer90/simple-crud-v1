@@ -8,7 +8,7 @@ const loginController = require("./controllers/loginController");
 
 app.route("/user")
     .get(userController.getUser)
-//    .post(/*validation,*/controller.post)
+    .post(/*validation,*/userController.postUser)
          
 app.route("/:_id")
 //    .get(controller.getById)
@@ -16,7 +16,7 @@ app.route("/:_id")
 //    .delete(controller.delete)
 
 app.route("/login/:email/:pass")
-    .get(loginController.getByEmail)
+    .post(loginController.getByEmail)
 
 
 module.exports = app;

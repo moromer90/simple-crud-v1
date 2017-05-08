@@ -1,20 +1,21 @@
 {
-    "name": "aplicacion_node",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "start": "nodemon index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "jose alexei",
-    "license": "ISC",
-    "devDependencies": {
-        "nodemon": "^1.11.0"
-    },
-    "dependencies": {
-        "body-parser": "^1.17.1",
-        "express": "^4.15.2",
-        "mongoose": "^4.9.7"
-    }
+  "name": "aplicacion_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jose alexei",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "handlebars": "^4.0.8",
+    "mongoose": "^4.9.7"
+  }
 }
