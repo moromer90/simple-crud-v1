@@ -10,14 +10,18 @@ app.route("/user")
     .get(userController.getUser)
     .post(/*validation,*/userController.postUser)
          
-app.route("/:_id")
+app.route("/user/:_id")
 //    .get(controller.getById)
 //    .put(/*validation,*/controller.put)
 //    .delete(controller.delete)
 
 app.route("/login/:email/:pass")
+    
     .post(loginController.getByEmail)
 
+
+app.route("/login")
+    .get(loginController.getLoginView)
 
 module.exports = app;
 

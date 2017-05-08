@@ -18,3 +18,11 @@ exports.getByEmail = function (req,res) {
     });
 }
 
+exports.getLoginView = function(req,res){
+    res.render('../views/login.hbs',{
+    pageTitle:"Login",
+//    content:"Contenido de la página"
+    });
+        
+}
+
