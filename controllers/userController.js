@@ -42,10 +42,10 @@ exports.updateUser = function (req,res) {
 }
 
 exports.deleteUser = function (res,req){
-	//var userId = req.params._id;
+	var userId = req.params._id;
 	//console.log(userId);
 	//console.log(req.params.name);
-    User.findOneAndRemove({_id:req.params._id},function(err,user){
+    User.findOneAndRemove(userId,function(err,user){
         if(err){
             return res.send("Error: "+ err.message);
         }
@@ -53,4 +53,3 @@ exports.deleteUser = function (res,req){
         res.send(user + "\n Borrado realizado con exito");
     });
 }
-} 

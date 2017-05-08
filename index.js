@@ -6,7 +6,6 @@ const routers = require('./routers');
 var {ObjectID} = require ('mongodb');
 const hbs = require('hbs');
 const mongodbRoute = 'mongodb://jose:jose@ds135820.mlab.com:35820/pruebanode';
-const hbs = require('hbs');
 
 
 const app = express();

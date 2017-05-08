@@ -10,13 +10,11 @@ app.route("/user")
 
     .get(userController.getUser)
     .post(/*validation,*/userController.postUser)
-    .get(controller.getUser)
-    .post(controller.postUser)
          
-app.route("/user/:_id")
+app.route("/:id")
 //    .get(controller.getById)
-    .put(controller.updateUser)
-    .delete(controller.deleteUser)
+    .put(userController.updateUser)
+    .delete(userController.deleteUser)
 
 app.get('/about', (req, res) => {
 res.render('about.hbs');
