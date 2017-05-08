@@ -15,8 +15,12 @@ app.route("/user")
          
 app.route("/user/:_id")
 //    .get(controller.getById)
-//    .put(/*validation,*/controller.put)
-//    .delete(controller.delete)
+    .put(controller.updateUser)
+    .delete(controller.deleteUser)
+
+app.get('/about', (req, res) => {
+res.render('about.hbs');
+})
 
 app.route("/login/:email/:pass")
     

@@ -4,8 +4,10 @@ const mongoose =  require ('mongoose');
 const bodyparser =  require ('body-parser');
 const routers = require('./routers');
 var {ObjectID} = require ('mongodb');
+const hbs = require('hbs');
 const mongodbRoute = 'mongodb://jose:jose@ds135820.mlab.com:35820/pruebanode';
 const hbs = require('hbs');
+
 
 const app = express();
 const port = 3001;
@@ -19,7 +21,7 @@ app.use(bodyparser.json());
 app.use(routers);
 app.set('view engine', 'hbs');
 
-
+app.set("view engine", 'hbs');
 /*MONGODB*/
 mongoose.Promise = global.Promise
 mongoose.connect(mongodbRoute, (err) => {
