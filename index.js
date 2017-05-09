@@ -19,14 +19,14 @@ app.use(bodyparser.json());
 app.use(routers);
 app.set('view engine', 'hbs');
 
-app.set("view engine", 'hbs');
-
-			app.get('/about', (req, res) => {
-			res.render('about.hbs',{
-				pageTitle:'Pagetite',
-				content:'Contenido'
-			});
-			})
+//app.set("view engine", 'hbs');
+//
+//			app.get('/about', (req, res) => {
+//			res.render('about.hbs',{
+//				pageTitle:'Pagetite',
+//				content:'Contenido'
+//			});
+//			})
 /*MONGODB*/
 mongoose.Promise = global.Promise
 mongoose.connect(mongodbRoute, (err) => {

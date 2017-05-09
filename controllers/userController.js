@@ -41,7 +41,7 @@ exports.updateUser = function (req,res) {
     });
 }
 
-exports.deleteUser = function (res,req){
+exports.deleteUser = function (req,res){
 	var userId = req.params._id;
 	//console.log(userId);
 	//console.log(req.params.name);
