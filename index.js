@@ -17,7 +17,7 @@ app.use(bodyparser.urlencoded({
 
 app.use(bodyparser.json());
 app.use(routers);
-
+app.use(express.static(__dirname + '/public'));
 app.set("view engine", 'hbs');
 
 

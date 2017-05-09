@@ -25,9 +25,9 @@ app.route("/login/:email/:pass")
 app.route("/login")
     .get(loginController.getLoginView)
 
-    app.route("/register")
+app.route("/register")
     .get(userRegister.getRegisterView)
-    .post(userRegister.postRegister)
+   // .post(userRegister.postRegister)
 
 module.exports = app;
 
