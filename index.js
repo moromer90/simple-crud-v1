@@ -18,8 +18,11 @@ app.use(bodyparser.urlencoded({
 app.use(bodyparser.json());
 app.use(routers);
 app.use(express.static(__dirname + '/public'));
+<<<<<<< HEAD
 app.set('view engine', 'hbs');
 
+/*MONGODB*/
+>>>>>>> feature/Vista_Register
 mongoose.Promise = global.Promise
 mongoose.connect(mongodbRoute, (err) => {
     if (err) {

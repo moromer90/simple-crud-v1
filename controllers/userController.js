@@ -18,15 +18,15 @@ exports.getUser = function (req,res) {
 exports.postUser = function (req,res) {
     var newUser = new User({   name: req.body.name,
                                email:req.body.email,
-                               pass: req.body.pass,
-                               active:req.body.active,
-                               img: req.body.img
+                               pass: req.body.pass
+                               
                              });
+    console.log(newUser)
             newUser.save(function(err,user){
                 if(err){
                     return res.send("Error: "+ err.message + ".....");
                 }
-                res.send(newUser + "\n Insert realizado con exito");
+                res.send(user);
             });
 
 }
