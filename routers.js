@@ -21,7 +21,7 @@ app.route("/user/:_id")
 app.route("/login/:email/:pass")
     .post(loginController.getByEmail)
 
-app.route("/login")
+app.route("/")
     .get(loginController.getLoginView)
 
 app.route("/register")

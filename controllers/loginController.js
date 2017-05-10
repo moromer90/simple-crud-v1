@@ -14,7 +14,7 @@ exports.getByEmail = function (req,res) {
             return res.send("Email o contraseña incorrectos");
         }
         
-        return res.send(user);
+        return res.render(register);
     });
 }
 
