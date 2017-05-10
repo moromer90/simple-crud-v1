@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+#container {
+  margin: 0 30px; }
+
+h2 {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 40px; }
+
+/*# sourceMappingURL=style.css.map */
