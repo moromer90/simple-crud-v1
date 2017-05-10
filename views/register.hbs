@@ -3,19 +3,25 @@
     <head>
         <meta charset="UTF-8">
         <title>{{pageTitle}}</title>
-  <script  src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
   <script type="text/javascript" src="../js/userreg.js"></script>
     </head>
     <body>
         <form>
             <label>Your name:</label>
-            <p><input type="name" id="#name"></p> 
+            <p><input type="name" id="name"></p> 
             <label>Email:</label>
-            <p><input type="email" id="#email"></p> 
+            <p><input type="email" id="email"></p> 
             <label>Contraseña:</label>
-            <p><input type="password"></p>
-            <p><input type="submit" value="Register" id="submit"></p>
+            <p><input type="password" id="pass"></p>
+            <p><input type="button" value="Register" id="submit"></p>
         </form>
+        <!-- <script>
+        Template.registerHelper("log", function(something) {
+  console.log(something);
+});</script> -->
     </body>
 </html>
