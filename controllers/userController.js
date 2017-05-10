@@ -5,8 +5,12 @@ exports.getUser = function (req,res) {
         if(err){
             return res.send("Error: "+ err.message);
         }
+        if(!user){
+            return res.status(404).send({message: "No existen usuarios"});
+        }
         console.log(user);
         return res.send(user);
+//        return res.status(200).render("user.hbs",{user:user});
     });
 }
 
