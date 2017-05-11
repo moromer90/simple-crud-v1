@@ -8,10 +8,11 @@ exports.getByEmail = function (req,res) {
             return res.status(500).send("Error: "+ err.message);
         }
         
-        console.log("User: "+user);
+        console.log("User: "+user.length);
         
-        if(user == ""){
-            return res.status(204).send("Error");
+        if(!user.length){
+            console.log("User vacio");
+            return res.status(204).send(err);
         }
         
         return res.send(user);

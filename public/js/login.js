@@ -26,7 +26,12 @@ function startAjax(data, url, type) {
     })
         .done(function( data, textStatus, jqXHR ) {
             console.log("La solicitud se a completado");
-            //location.href = "http://localhost:3001/register";
+            console.log(data);
+            if(jqXHR.status == 204){
+            }else{
+                location.href = baseUrl+"/register";
+            }
+            
         })
         .fail(function( jqXHR, textStatus, errorThrown ) {
         console.log( "textStatus: " +  textStatus);
