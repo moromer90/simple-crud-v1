@@ -9,7 +9,7 @@ $(document).ready(function(){
         var pass = $("#pass").val();
         console.log("pass: "+pass);
        
-        var url = "/user/"+email+"/"+pass;
+        var url = "/login/"+email+"/"+pass;
        console.log("url: "+url);
         startAjax(null, url, "POST");
         
@@ -26,9 +26,13 @@ function startAjax(data, url, type) {
     })
         .done(function( data, textStatus, jqXHR ) {
             console.log("La solicitud se a completado");
+            //location.href = "http://localhost:3001/register";
         })
         .fail(function( jqXHR, textStatus, errorThrown ) {
-        console.log( "Register new user failed: " +  textStatus);
+        console.log( "textStatus: " +  textStatus);
+        console.log( "jqXHR: " +  jqXHR);
+        console.log( "errorThrown: " +  textStatus);
+        
         });
         
     }

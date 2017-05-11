@@ -5,16 +5,16 @@ exports.getByEmail = function (req,res) {
     console.log("Pass: "+req.params.pass);
     User.find({email:req.params.email,pass:req.params.pass}, function(err,user){
         if(err){
-            return res.send("Error: "+ err.message);
+            return res.status(500).send("Error: "+ err.message);
         }
         
         console.log("User: "+user);
         
         if(user == ""){
-            return res.send("Email o contraseña incorrectos");
+            return res.status(204).send("Error");
         }
         
-        return res.render(register);
+        return res.send(user);
     });
 }
 
