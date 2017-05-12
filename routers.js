@@ -4,6 +4,7 @@ const app = express();
 const userController = require("./controllers/userController");
 const loginController = require("./controllers/loginController");
 const userRegister=require("./controllers/userRegister");
+const sendEmail = require("./controllers/emailController");
 //const validation = require("./middleware");
 
 
@@ -27,6 +28,9 @@ app.route("/")
 app.route("/register")
     .get(userRegister.getRegisterView)
    // .post(userRegister.postRegister)
+
+app.route("/sendMail")
+    .get(sendEmail.emailSender)
 
 module.exports = app;
 

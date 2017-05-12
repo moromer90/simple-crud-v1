@@ -19,7 +19,7 @@ exports.getRegisterView = function(req,res){
     pageTitle:"Register new user",
 //    content:"Contenido de la página"
     });
-        
+        console.log("aaaaaaaaaaa");
 }
 
 
