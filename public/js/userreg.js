@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 function emailSender(){
     var from,to,subject,text;
-    $("#send_email").click(function(){      
+         
         to=$("#email").val();
         subject="Registrar usuario";
         text="Para activar tu registro haz click en el link";
@@ -51,7 +51,7 @@ function emailSender(){
 
             }
         });
-    });
+
 }
                            
 
