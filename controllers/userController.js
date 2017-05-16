@@ -1,4 +1,4 @@
-const User = require ('../models/userModel')
+const User = require ('../models/userModel');
 
 exports.getUser = function (req,res) {
     User.find({}, function(err,user){
