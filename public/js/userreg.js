@@ -24,36 +24,50 @@ $(document).ready(function(){
             type: type,
             dataType: "json"
         })
-            .done(function( data, textStatus, jqXHR ) {
-            console.log("User registered successfully");
-            emailSender();
-//            location.href = baseUrl+"/sendEmail";
+        .done(function( data, textStatus, jqXHR ) {
+            if(url == "http://localhost:3001/user"){
+                console.log("User registered successfully");
+                emailSender();
+            }
+
+                //            location.href = baseUrl+"/sendEmail";
         })
-            .fail(function( jqXHR, textStatus, errorThrown ) {
-            console.log( "Register new user failed: " +  textStatus);
+        
+        .fail(function( jqXHR, textStatus, errorThrown ) {
+            if(url == "http://localhost:3001/user"){
+                console.log( "Register new user failed: " +  textStatus);
+            }else{
+                console.log( "SendMail error: " +  textStatus);
+            }  
         });
+
+    }
+
+    function emailSender(){
+        var to,subject,text;
+
+        to=$("#email").val();
+        subject="Registrar usuario";
+        text="Para activar tu registro haz click en el link";
+        $("#message").text("Sending E-mail...Please wait");
+
+        var data= {
+            "to":to,
+            "subject":subject,
+            "text":text
+        }
+        var url = "/sendMail";
+        var endpoint = baseUrl + url;
+
+        startAjax(data, endpoint, "POST");
+
 
     }
 
 });
 
-function emailSender(){
-    var from,to,subject,text;
-         
-        to=$("#email").val();
-        subject="Registrar usuario";
-        text="Para activar tu registro haz click en el link";
-        $("#message").text("Sending E-mail...Please wait");
-        $.get(baseUrl+"/sendEmail",{to:to,subject:subject,text:text},function(data){
 
-            if(data=="sent") {
-                $("#message").empty().html("Email is been sent at "+to+" . Please check inbox!");
 
-            }
-        });
-
-}
-                           
 
 
 

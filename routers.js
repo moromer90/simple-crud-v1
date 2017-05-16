@@ -30,7 +30,7 @@ app.route("/register")
    // .post(userRegister.postRegister)
 
 app.route("/sendMail")
-    .get(sendEmail.emailSender)
+    .post(sendEmail.emailSender)
 
 module.exports = app;
 
