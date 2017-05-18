@@ -28,16 +28,18 @@ $(document).ready(function(){
             if(url == "http://localhost:3001/user"){
                 console.log("User registered successfully");
                 emailSender();
+            }else{
+                console.log("Email send successfully");
             }
-
-                //            location.href = baseUrl+"/sendEmail";
         })
         
         .fail(function( jqXHR, textStatus, errorThrown ) {
             if(url == "http://localhost:3001/user"){
                 console.log( "Register new user failed: " +  textStatus);
             }else{
-                console.log( "SendMail error: " +  textStatus);
+                console.log( "SendMail textStatus: " +  textStatus);
+                console.log( "SendMail jqXHR: " +  jqXHR);
+                console.log( "SendMail errorThrown: " +  errorThrown);
             }  
         });
 

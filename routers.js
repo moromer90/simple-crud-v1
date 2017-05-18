@@ -9,7 +9,6 @@ const sendEmail = require("./controllers/emailController");
 
 
 app.route("/user")
-
     .get(userController.getUser)
     .post(/*validation,*/userController.postUser)
          
@@ -17,7 +16,6 @@ app.route("/user/:_id")
 //    .get(controller.getById)
     .put(userController.updateUser)
     .delete(userController.deleteUser)
-
 
 app.route("/login/:email/:pass")
     .post(loginController.getByEmail)
@@ -30,7 +28,7 @@ app.route("/register")
    // .post(userRegister.postRegister)
 
 app.route("/sendMail")
-    .post(sendEmail.emailSender)
+    .post(sendEmail.sendEmail)
 
 module.exports = app;
 
