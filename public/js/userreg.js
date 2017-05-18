@@ -25,27 +25,17 @@ $(document).ready(function(){
             dataType: "json"
         })
         .done(function( data, textStatus, jqXHR ) {
-            if(url == "http://localhost:3001/user"){
                 console.log("User registered successfully");
-                emailSender();
-            }else{
-                console.log("Email send successfully");
-            }
+            
         })
         
         .fail(function( jqXHR, textStatus, errorThrown ) {
-            if(url == "http://localhost:3001/user"){
-                console.log( "Register new user failed: " +  textStatus);
-            }else{
-                console.log( "SendMail textStatus: " +  textStatus);
-                console.log( "SendMail jqXHR: " +  jqXHR);
-                console.log( "SendMail errorThrown: " +  errorThrown);
-            }  
+                console.log( "Register new user failed: " +  textStatus);  
         });
 
     }
 
-    function emailSender(){
+   /* function emailSender(){
         var to,subject,text;
 
         to=$("#email").val();
@@ -64,7 +54,7 @@ $(document).ready(function(){
         startAjax(data, endpoint, "POST");
 
 
-    }
+    }*/
 
 });
 
