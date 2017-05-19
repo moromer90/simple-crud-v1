@@ -6,6 +6,7 @@ const loginController = require("./controllers/loginController");
 const userRegister=require("./controllers/userRegister");
 const sendEmail = require("./controllers/emailController");
 const recoverPass = require("./controllers/recoverPassController");
+const modifyPass = require("./controllers/modifyPassController");
 //const validation = require("./middleware");
 
 
@@ -32,6 +33,9 @@ app.route("/register")
 
 app.route("/recoverPass")
     .get(recoverPass.getRecoverPass)
+
+app.route("/modifyPass")
+    .get(modifyPass.getModifyPassView)
 
 module.exports = app;
 

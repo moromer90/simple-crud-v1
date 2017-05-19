@@ -24,8 +24,8 @@ exports.getUserByEmail = function(req,res) {
         
         mail.sendEmail(req.params.email, "");
         
-//        console.log(user);
-//        return res.send(user);
+        console.log(user);
+        return res.send(user);
     });
 }
 
@@ -41,6 +41,7 @@ exports.postUser = function (req,res) {
         if(err){
             return res.send("Error: "+ err.message + ".....");
         }
+        mail.sendEmail(req.body.email,"register");
         res.send(user);
     });
 

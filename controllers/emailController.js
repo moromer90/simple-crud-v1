@@ -3,24 +3,28 @@ const nodemailer = require('nodemailer');
 const xoauth2 = require('xoauth2');
 
 
-exports.sendEmail = function (req,res){
+exports.sendEmail = function(email,type){
+    
     var generator = xoauth2.createXOAuth2Generator({
         user: "jdavid.conesa@ikasle.aeg.es",
         clientId: "632565678267-f00c4dnm7tclm33eh5be9ctc615rn3d6.apps.googleusercontent.com",
         clientSecret: "7VNjDeAdFS4DzCgrywyQ_Vcn",
         refreshToken: "1/4v_OkTcR-zv8oZSfXc838HYiIHxAnq2oskJMukgiCA8",
     });
+    
     console.log(JSON.stringify(generator));
     generator.on('token', function(token){
         console.log(token);
         console.log(`AccessToken: ${token.accessToken}`);
     });
+    
     var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
             xoauth2: generator
         }
     });
+    
     //Test Nodemailer
     transporter.verify(function(error, success) {
         if (error) {
@@ -29,11 +33,23 @@ exports.sendEmail = function (req,res){
             console.log('Server up y listo para enviar mensajes');
         }
     });
+    
+    let subject;
+    let text;
+    
+    if(type == "register"){
+        subject = "Activar Cuenta registrada";
+        text="Para activar tu cuenta haz click en el link";
+    }else{
+        subject = "Recuperar contraseña";
+        text="Para recuperar la contraseña haz click en link: http://localhost:3001/modifyPass";
+    }
+    
     var mailOptions = {
         from:"jdavid.conesa@ikasle.aeg.es",
-        to : req.body.to,
-        subject : req.body.subject,
-        text : req.body.text
+        to : email,
+        subject : subject,
+        text : text
     };
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
