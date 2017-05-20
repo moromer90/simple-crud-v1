@@ -29,7 +29,7 @@ function startAjax(data, url, type) {
             console.log(data);
             if(jqXHR.status == 204){
             }else{
-                location.href = baseUrl+"/register";
+                location.href = baseUrl+"/admin";
             }
             
         })

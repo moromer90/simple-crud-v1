@@ -8,6 +8,7 @@ const sendEmail = require("./controllers/emailController");
 const recoverPass = require("./controllers/recoverPassController");
 const modifyPass = require("./controllers/modifyPassController");
 const activeAccount = require("./controllers/activeAccountController");
+const admin = require("./controllers/adminController");
 //const validation = require("./middleware");
 
 
@@ -42,6 +43,9 @@ app.route("/modifyPass/:_id")
 
 app.route("/activeAccount/:_id")
     .get(activeAccount.getActiveAccountView)
+
+app.route("/admin")
+    .get(admin.getAdminView)
 
 module.exports = app;
 
