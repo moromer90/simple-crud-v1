@@ -17,6 +17,7 @@ app.route("/user")
 app.route("/user/:_id")
     .put(userController.updateUser)
     .delete(userController.deleteUser)
+    .get(userController.getById)
 
 app.route("/user/:email")
     .post(userController.getUserByEmail)
@@ -32,10 +33,11 @@ app.route("/register")
    // .post(userRegister.postRegister)
 
 app.route("/recoverPass")
-    .get(recoverPass.getRecoverPass)
+    .get(recoverPass.getRecoverPassView)
 
-app.route("/modifyPass")
+app.route("/modifyPass/:_id")
     .get(modifyPass.getModifyPassView)
+    .put(userController.updateUserById);
 
 module.exports = app;
 

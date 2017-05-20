@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const xoauth2 = require('xoauth2');
 
 
-exports.sendEmail = function(email,type){
+exports.sendEmail = function(email,id,type){
     
     var generator = xoauth2.createXOAuth2Generator({
         user: "jdavid.conesa@ikasle.aeg.es",
@@ -42,7 +42,7 @@ exports.sendEmail = function(email,type){
         text="Para activar tu cuenta haz click en el link";
     }else{
         subject = "Recuperar contraseña";
-        text="Para recuperar la contraseña haz click en link: http://localhost:3001/modifyPass";
+        text="Para recuperar la contraseña haz click en link: http://localhost:3001/modifyPass/"+id;
     }
     
     var mailOptions = {

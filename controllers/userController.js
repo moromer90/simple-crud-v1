@@ -15,16 +15,27 @@ exports.getUser = function (req,res) {
     });
 }
 
+exports.getById = function(req,res){
+    console.log("ObjectID: "+req.params._id);
+    User.find({_id:req.params._id}, function(err,user){
+        if(err){
+            return res.send("Error: "+ err.message);
+        }
+        console.log(user);
+        return res.send(user);
+    });
+}
+
 exports.getUserByEmail = function(req,res) {
     console.log("getUserByEmail");
     User.find({email:req.params.email}, function(err,user){
         if(err){
             return res.send("Error: "+ err.message);
         }
-        
-        mail.sendEmail(req.params.email, "recoverPass");
-        
-        console.log(user);
+
+        mail.sendEmail(req.params.email,user[0]._id, "recoverPass");
+
+        console.log("user id: "+user[0]._id);
         return res.send(user);
     });
 }
@@ -73,3 +84,21 @@ exports.deleteUser = function (req,res){
         res.send(user + "\n Borrado realizado con exito");
     });
 }
+
+exports.updateUserById = function (req,res) {
+    console.log("updateUserById");
+    var userId = req.params._id;
+    var update = req.body;
+    
+    //    console.log(userId);
+    console.log(update);
+    User.findOneAndUpdate(userId,{$set:update},{new:true},function(err,user){
+        if(err){
+            return res.send("Error: "+ err.message);
+        }
+        console.log(user);
+        res.send(user);
+    });
+}
+
+
