@@ -22,7 +22,7 @@ exports.getUserByEmail = function(req,res) {
             return res.send("Error: "+ err.message);
         }
         
-        mail.sendEmail(req.params.email, "");
+        mail.sendEmail(req.params.email, "recoverPass");
         
         console.log(user);
         return res.send(user);

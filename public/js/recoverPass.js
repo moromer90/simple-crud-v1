@@ -14,6 +14,7 @@ $(document).ready(function(){
         var url = "/user/"+email;
         var endpoint = baseUrl + url;
         console.log(baseUrl+url);
+        $("#message").text("Enviando email...");
         startAjax(data, endpoint, "POST");
     });
     
@@ -27,7 +28,8 @@ $(document).ready(function(){
             dataType: "json"
         })
         .done(function( data, textStatus, jqXHR ) {
-                console.log("pass send");
+            console.log("pass send");
+            $("#message").text("Email enviado");
             
         })
         
@@ -35,6 +37,7 @@ $(document).ready(function(){
                 console.log( "textStatus: " +  textStatus);  
                 console.log( "jqXHR " +  jqXHR);  
                 console.log( "errorThrown " +  errorThrown);  
+                $("#message").text("Error");
         });
 
     }
