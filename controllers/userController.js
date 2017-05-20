@@ -52,7 +52,8 @@ exports.postUser = function (req,res) {
         if(err){
             return res.send("Error: "+ err.message + ".....");
         }
-        mail.sendEmail(req.body.email,"register");
+        console.log("user id: "+user._id);
+        mail.sendEmail(req.body.email,user._id,"register");
         res.send(user);
     });
 

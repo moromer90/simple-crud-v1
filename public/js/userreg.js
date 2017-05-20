@@ -26,6 +26,7 @@ $(document).ready(function(){
         })
         .done(function( data, textStatus, jqXHR ) {
                 console.log("User registered successfully");
+            $("#message").text("Usuario registrado");
             
         })
         
