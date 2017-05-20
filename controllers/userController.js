@@ -69,7 +69,7 @@ exports.updateUser = function (req,res) {
             return res.send("Error: "+ err.message);
         }
         console.log(user);
-        res.send(user + "\n Actualizacion realizada con exito");
+        res.send(user);
     });
 }
 

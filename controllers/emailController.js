@@ -39,7 +39,7 @@ exports.sendEmail = function(email,id,type){
     
     if(type == "register"){
         subject = "Activar Cuenta registrada";
-        text="Para activar tu cuenta haz click en el link: http://localhost:3001/modifyPass/"+id";
+        text="Para activar tu cuenta haz click en el link: http://localhost:3001/activeAccount/"+id;
     }else{
         subject = "Recuperar contraseña";
         text="Para recuperar la contraseña haz click en link: http://localhost:3001/modifyPass/"+id;
