@@ -17,9 +17,13 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "handlebars": "^4.0.10",
     "hbs": "^4.0.1",
     "mongoose": "^4.9.7",
+    "mongoose-validator": "^1.2.6",
     "nodemailer": "^2.6.4",
+    "oauth2": "0.0.1",
+    "validator": "^7.0.0",
     "xoauth2": "^1.2.0"
   }
 }
