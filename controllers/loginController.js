@@ -1,9 +1,9 @@
 const User = require ('../models/userModel')
 
-exports.getByEmail = function (req,res) {
-    console.log("Email: "+req.params.email);
-    console.log("Pass: "+req.params.pass);
-    User.find({email:req.params.email,pass:req.params.pass}, function(err,user){
+exports.postByEmail = function (req,res) {
+    console.log("Email: "+req.body.email);
+    console.log("Pass: "+req.body.pass);
+    User.find({email:req.body.email,pass:req.body.pass}, function(err,user){
         if(err){
             return res.status(500).send("Error: "+ err.message);
         }

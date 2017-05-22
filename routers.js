@@ -28,8 +28,8 @@ app.route("/user/:email")
 
 // Esto de aquí es una broma no?
 // un post que es un get con el password???????? 
-app.route("/login/:email/:pass")
-    .post(loginController.getByEmail)
+app.route("/login")
+    .post(loginController.postByEmail)
 
 app.route("/")
     .get(loginController.getLoginView)

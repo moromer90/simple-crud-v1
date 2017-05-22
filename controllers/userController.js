@@ -50,7 +50,7 @@ exports.postUser = function (req,res) {
     console.log(newUser)
     newUser.save(function(err,user){
         if(err){
-            return res.send("Error: "+ err.message + ".....");
+            return res.send(err.message);
         }
         console.log("user id: "+user._id);
         mail.sendEmail(req.body.email,user._id,"register");
