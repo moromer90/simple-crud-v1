@@ -8,11 +8,15 @@ exports.getByEmail = function (req,res) {
             return res.status(500).send("Error: "+ err.message);
         }
         
-        console.log("User: "+user.length);
+        console.log("User length: "+user.length);
+        console.log("User: "+user);
         
-        if(!user.length){
+        if(!user[0]){
             console.log("User vacio");
             return res.status(204).send(err);
+        }else if(!user[0].activate){
+            console.log("Usuario no activado");
+            return res.status(401).send(err);
         }
         
         return res.send(user);
