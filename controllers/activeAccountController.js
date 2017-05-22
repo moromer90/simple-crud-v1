@@ -14,7 +14,7 @@ exports.getActiveAccountView = function(req,res){
             return res.send("Error: "+ err.message);
         }
         console.log(user);
-        res.send(user);
+//        res.send(user);
     });
     
     res.render('../views/activeAccount.hbs',{
