@@ -25,6 +25,9 @@ app.route("/user/:_id")
 app.route("/user/:email")
     .post(userController.getUserByEmail)
 
+
+// Esto de aquí es una broma no?
+// un post que es un get con el password???????? 
 app.route("/login/:email/:pass")
     .post(loginController.getByEmail)
 
