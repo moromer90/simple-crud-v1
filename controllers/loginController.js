@@ -14,7 +14,7 @@ exports.postByEmail = function (req,res) {
         if(!user[0]){
             console.log("User vacio");
             return res.status(204).send(err);
-        }else if(!user[0].activate){
+        }else if(user[0].activate=="false"){
             console.log("Usuario no activado");
             return res.status(401).send(err);
         }

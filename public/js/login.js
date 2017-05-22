@@ -9,13 +9,13 @@ $(document).ready(function(){
         var pass = $("#pass").val();
         console.log("pass: "+pass);
         
-         var data= {email:$("#email").val(),
-                    pass:$("#pass").val()
+         var data= {email:email,
+                    pass:pass
                   }
 
         var url = "/login";
         console.log("url: "+url);
-        startAjax(null, url, "POST");
+        startAjax(data, url, "POST");
 
     });
 
