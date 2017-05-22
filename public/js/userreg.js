@@ -7,10 +7,9 @@ $(document).ready(function(){
                    //"avatar":url_,     
                    //"active":$("#active").val()
                   }
-        console.log(data)                      ;
         var url = "/user";
+        //var url = "/register";
         var endpoint = baseUrl + url;
-        console.log(baseUrl+url);
         startAjax(data, endpoint, "POST");
         return false;
     });
