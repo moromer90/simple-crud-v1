@@ -39,7 +39,7 @@ exports.sendEmail = function(email,id,type){
     
     if(type == "register"){
         subject = "Activar Cuenta registrada";
-        text="Para activar tu cuenta haz click en el link: http://localhost:3001/activeAccount/"+id;
+        text='Para activar tu cuenta haz click en el link: <a href="http://localhost:3001/activeAccount/"+id+">activar aqui</a>';
     }else{
         subject = "Recuperar contraseña";
         text="Para recuperar la contraseña haz click en link: http://localhost:3001/modifyPass/"+id;
@@ -49,7 +49,7 @@ exports.sendEmail = function(email,id,type){
         from:"jdavid.conesa@ikasle.aeg.es",
         to : email,
         subject : subject,
-        text : text
+        html : text
     };
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
