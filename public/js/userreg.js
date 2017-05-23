@@ -8,9 +8,11 @@ $(document).ready(function(){
                    //"active":$("#active").val()
                   }
         var url = "/user";
-        //var url = "/register";
         var endpoint = baseUrl + url;
         startAjax(data, endpoint, "POST");
+    /* validacion de datos
+
+    */
         return false;
     });
 
@@ -34,27 +36,6 @@ $(document).ready(function(){
         });
 
     }
-
-   /* function emailSender(){
-        var to,subject,text;
-
-        to=$("#email").val();
-        subject="Registrar usuario";
-        text="Para activar tu registro haz click en el link";
-        $("#message").text("Sending E-mail...Please wait");
-
-        var data= {
-            "to":to,
-            "subject":subject,
-            "text":text
-        }
-        var url = "/sendMail";
-        var endpoint = baseUrl + url;
-
-        startAjax(data, endpoint, "POST");
-
-
-    }*/
 
 });
 
