@@ -10,7 +10,7 @@ $(document).ready(function(){
         var url = "/user";
         var endpoint = baseUrl + url;
         startAjax(data, endpoint, "POST");
-    /* validacion de datos
+        /* validacion de datos
 
     */
         return false;
@@ -25,14 +25,17 @@ $(document).ready(function(){
             type: type,
             dataType: "json"
         })
-        .done(function( data, textStatus, jqXHR ) {
-                console.log("User registered successfully");
+            .done(function( data, textStatus, jqXHR ) {
+            console.log("User registered successfully");
             $("#message").text("Usuario registrado");
-            
+
         })
-        
-        .fail(function( jqXHR, textStatus, errorThrown ) {
-                console.log( "Register new user failed: " +  textStatus);  
+
+            .fail(function( jqXHR, textStatus, errorThrown ) {
+            console.log( "Register new user failed: " +  textStatus);  
+            if(jqXHR.status == 400){
+                console.log(textStatus);
+            }
         });
 
     }

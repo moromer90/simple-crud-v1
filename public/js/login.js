@@ -45,7 +45,11 @@ $(document).ready(function(){
         })
             .fail(function( jqXHR, textStatus, errorThrown ) {
 
-            if(jqXHR.status == 401){
+            if(jqXHR.status == 403){
+                console.log(textStatus);
+            }else if(jqXHR.status == 403){
+                console.log(textStatus);
+            }else if(jqXHR.status == 500){
                 console.log(textStatus);
             }
 
