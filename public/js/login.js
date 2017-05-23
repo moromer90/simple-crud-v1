@@ -8,14 +8,19 @@ $(document).ready(function(){
 
         var pass = $("#pass").val();
         console.log("pass: "+pass);
-        
-         var data= {email:email,
-                    pass:pass
-                  }
 
-        var url = "/login";
-        console.log("url: "+url);
-        startAjax(data, url, "POST");
+        if(!email || !pass){
+            console.log("email o contraseña vacios");
+        }else{
+
+            var data= {email:email,
+                       pass:pass
+                      }
+
+            var url = "/login";
+            console.log("url: "+url);
+            startAjax(data, url, "POST");
+        }
 
     });
 
