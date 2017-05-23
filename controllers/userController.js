@@ -4,7 +4,7 @@ const mail = require ("./emailController");
 exports.getUser = function (req,res) {
     User.find({}, function(err,user){
         if(err){
-            return res.send("Error: "+ err.message);
+            return res.status(400).send("Error: "+ err.message);
         }
         if(!user){
             return res.status(404).send({message: "No existen usuarios"});
@@ -30,7 +30,7 @@ exports.getUserByEmail = function(req,res) {
     console.log("getUserByEmail");
     User.find({email:req.params.email}, function(err,user){
         if(err){
-            return res.send("Error: "+ err.message);
+            return res.status(400).send("Error: "+ err.message);
         }
 
         mail.sendEmail(req.params.email,user[0]._id, "recoverPass");
@@ -42,7 +42,8 @@ exports.getUserByEmail = function(req,res) {
 
 
 exports.postUser = function (req,res) {
-    var newUser = new User({   name: req.body.name,
+    var newUser = new User({
+                            name: req.body.name,
                             email:req.body.email,
                             pass: req.body.pass
 
@@ -50,7 +51,7 @@ exports.postUser = function (req,res) {
     console.log(newUser)
     newUser.save(function(err,user){
         if(err){
-            return res.send(err.message);
+            return res.status(400).send("Error: "+ err.message);
         }
         console.log("user id: "+user._id);
         mail.sendEmail(req.body.email,user._id,"register");
@@ -66,7 +67,7 @@ exports.updateUser = function (req,res) {
     console.log(update);
     User.findOneAndUpdate(userId,update,{new:true},function(err,user){
         if(err){
-            return res.send("Error: "+ err.message);
+            return res.status(400).send("Error: "+ err.message);
         }
         console.log(user);
         res.send(user);
@@ -79,7 +80,7 @@ exports.deleteUser = function (req,res){
     //console.log(req.params.name);
     User.findOneAndRemove(userId,function(err,user){
         if(err){
-            return res.send("Error: "+ err.message);
+            return res.status(400).send("Error: "+ err.message);
         }
         console.log(user);
         res.send(user + "\n Borrado realizado con exito");
@@ -95,7 +96,7 @@ exports.updateUserById = function (req,res) {
     console.log(update);
     User.findOneAndUpdate(userId,{$set:update},{new:true},function(err,user){
         if(err){
-            return res.send("Error: "+ err.message);
+            return res.status(400).send("Error: "+ err.message);
         }
         console.log(user);
         res.send(user);

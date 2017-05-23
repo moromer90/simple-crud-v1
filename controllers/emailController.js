@@ -1,15 +1,15 @@
 'use strict'
 const nodemailer = require('nodemailer');
 const xoauth2 = require('xoauth2');
-
+require('dotenv').config({path: './config/config.env'})
 
 exports.sendEmail = function(email,id,type){
     
     var generator = xoauth2.createXOAuth2Generator({
-        user: "jdavid.conesa@ikasle.aeg.es",
-        clientId: "632565678267-f00c4dnm7tclm33eh5be9ctc615rn3d6.apps.googleusercontent.com",
-        clientSecret: "7VNjDeAdFS4DzCgrywyQ_Vcn",
-        refreshToken: "1/4v_OkTcR-zv8oZSfXc838HYiIHxAnq2oskJMukgiCA8",
+        user: process.env.USER,
+        clientId: process.env.CLIENTID,
+        clientSecret: process.env.CLIENTSECRET,
+        refreshToken: process.env.REFRESHTOKEN,
     });
     
     console.log(JSON.stringify(generator));
@@ -53,6 +53,7 @@ exports.sendEmail = function(email,id,type){
     };
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
+            return res.status(400).send("Error: "+ error.message);
             console.log(`Error en el envío de email: ${error}`);
         }else{
             console.log('Mensaje correctamente enviado: ' + info.response);

@@ -5,7 +5,7 @@ exports.postByEmail = function (req,res) {
     console.log("Pass: "+req.body.pass);
     User.find({email:req.body.email,pass:req.body.pass}, function(err,user){
         if(err){
-            return res.status(500).send("Error: "+ err.message);
+            return res.status(400).send("Error: "+ err.message);
         }
         
         console.log("User length: "+user.length);
@@ -16,7 +16,7 @@ exports.postByEmail = function (req,res) {
             return res.status(204).send(err);
         }else if(user[0].active=="false"){
             console.log("Usuario no activado");
-            return res.status(401).send(err);
+            return res.status(403).send(err);
         }
         
         return res.send(user);

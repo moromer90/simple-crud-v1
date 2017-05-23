@@ -1,4 +1,5 @@
 'use-strict'
+
 const express = require('express');
 const mongoose =  require ('mongoose');
 
@@ -6,11 +7,11 @@ const bodyparser =  require ('body-parser');
 const routers = require('./routers');
 var {ObjectID} = require ('mongodb');
 const hbs = require('hbs');
-const mongodbRoute = 'mongodb://jose:jose@ds135820.mlab.com:35820/pruebanode';
+const mongodbRoute = process.env.MONGODBROUTE;
 
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT;
 
 app.use(bodyparser.urlencoded({
     extended:true

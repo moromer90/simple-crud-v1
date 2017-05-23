@@ -6,12 +6,18 @@ exports.getActiveAccountView = function(req,res){
     console.log("updateUserById");
     var userId = req.params._id;
     var update = {active:"true"};
+    var mensaje= "Usuario activado corretamente"+userId;
     
     //    console.log(userId);
     console.log(update);
-    User.findOneAndUpdate(userId,{$set:update},{new:true},function(err,user){
+    console.log(userId);
+    User.findByIdAndUpdate(userId,{$set:update},{new:true},function(err,user){
         if(err){
-            return res.send("Error: "+ err.message);
+            //return res.status(400).send("Error: "+ err.message);
+            mensaje="Algo se pasa malo"+res.status(400);
+        }
+        else if (userId) {
+            mensaje= "Enlace no esta correcto. Pruebalo una vez mas"
         }
         console.log(user);
 //        res.send(user);
@@ -19,7 +25,7 @@ exports.getActiveAccountView = function(req,res){
     
     res.render('../views/activeAccount.hbs',{
     pageTitle:"ActiveAccount",
-    content:"Usuario activado"
+    content: mensaje
     });
         
 }
