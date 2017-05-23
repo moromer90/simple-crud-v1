@@ -9,32 +9,33 @@ const recoverPass = require("./controllers/recoverPassController");
 const modifyPass = require("./controllers/modifyPassController");
 const activeAccount = require("./controllers/activeAccountController");
 const admin = require("./controllers/adminController");
-const middlewarevalidation = require ('./middleware/middlewarevalidation');
+const validation = require ('./middleware/middlewarevalidation');
 //const validation = require("./middleware");
 
-
+//onsole.log(middlewarevalidation)
 app.route("/user")
     .get(userController.getUser)
-    .post(userController.postUser)
+    .post(validation, userController.postUser)
          
 app.route("/user/:_id")
-    .put(userController.updateUser)
+    .put(validation, userController.updateUser)
     .delete(userController.deleteUser)
     .get(userController.getById)
 
 app.route("/user/:email")
-    .post(userController.getUserByEmail)
+    .post(validation, userController.getUserByEmail)
 
 
 // Esto de aquí es una broma no?
 // un post que es un get con el password???????? 
 app.route("/login")
-    .post(loginController.postByEmail)
+    .post(validation, loginController.postByEmail)
 
 app.route("/")
     .get(loginController.getLoginView)
 
 app.route("/register")
+
     .get(userRegister.getRegisterView)
    // .post(userRegister.postRegister)
 
