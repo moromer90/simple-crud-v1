@@ -5,6 +5,8 @@ $(document).ready(function(){
     var urlsplit = allUrl.split("/");
     var id = urlsplit[4];
     console.log("id: "+id);
+    
+    $("#login").attr("href", baseUrl);
 
     var data= {active:"true"}
     var url = "/user/"+id;
