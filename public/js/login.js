@@ -1,5 +1,8 @@
 var baseUrl = document.location.origin;
 $(document).ready(function(){
+    
+    $("#register").attr("href", baseUrl+"/register");
+    $("#recoverPass").attr("href", baseUrl+"/recoverPass");
     $("#login").click(function() {   
         console.log("Click login");
 
