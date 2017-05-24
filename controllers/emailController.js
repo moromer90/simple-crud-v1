@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const xoauth2 = require('xoauth2');
 require('dotenv').config({path: './config/config.env'})
 
-exports.sendEmail = function(email,id,type){
+exports.sendEmail = function(email,id,type,baseUrl){
     
     var generator = xoauth2.createXOAuth2Generator({
         user: process.env.USER,
@@ -39,10 +39,10 @@ exports.sendEmail = function(email,id,type){
     
     if(type == "register"){
         subject = "Activar Cuenta registrada";
-        text="Para activar tu cuenta haz click en el link: <a href='http://localhost:3001/activeAccount/"+id+"'>activar aqui</a>";
+        text="Para activar tu cuenta haz click en el link: <a href='"+process.env.HOST+"/"+id+"'>activar aqui</a>";
     }else{
         subject = "Recuperar contraseña";
-        text="Para recuperar la contraseña haz click en link: <a href='http://localhost:3001/modifyPass/"+id+"'>modificar password</a>";
+        text="Para recuperar la contraseña haz click en link: <a href='"+process.env.HOST+"/"+id+"'>modificar password</a>";
     }
     
     var mailOptions = {
