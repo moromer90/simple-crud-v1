@@ -32,6 +32,11 @@ exports.getUserByEmail = function(req,res) {
         if(err){
             return res.status(400).send("Error: "+ err.message);
         }
+/*
+else if (res.status==404){
+            return res.send("Error: el usuario no esta en ecncontrado");
+        }
+*/
 
         mail.sendEmail(req.params.email,user[0]._id, "recoverPass");
 
@@ -95,7 +100,7 @@ exports.updateUserById = function (req,res) {
     
     //    console.log(userId);
     console.log(update);
-    User.findOneAndUpdate(userId,{$set:update},{new:true},function(err,user){
+    User.findByIdAndUpdate(userId,{$set:update},{new:true},function(err,user){
         if(err){
             return res.status(400).send("Error: "+ err.message);
         }

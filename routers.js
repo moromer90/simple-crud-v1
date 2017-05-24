@@ -9,24 +9,24 @@ const recoverPass = require("./controllers/recoverPassController");
 const modifyPass = require("./controllers/modifyPassController");
 const activeAccount = require("./controllers/activeAccountController");
 const admin = require("./controllers/adminController");
-const validation = require ('./middleware/middlewarevalidation');
+//const validation = require ('./middleware/middlewarevalidation');
 //const validation = require("./middleware");
 
 //onsole.log(middlewarevalidation)
 app.route("/user")
     .get(userController.getUser)
-    .post(validation, userController.postUser)
+    .post(userController.postUser)
          
 app.route("/user/:_id")
-    .put(validation, userController.updateUser)
+    .put(userController.updateUser)
     .delete(userController.deleteUser)
     .get(userController.getById)
 
 app.route("/user/:email")
-    .post(validation, userController.getUserByEmail)
+    .post(userController.getUserByEmail)
 
 app.route("/login")
-    .post(validation, loginController.postByEmail)
+    .post(loginController.postByEmail)
 
 app.route("/")
     .get(loginController.getLoginView)

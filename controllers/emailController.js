@@ -36,13 +36,15 @@ exports.sendEmail = function(email,id,type,baseUrl){
     
     let subject;
     let text;
+    let url1=process.env.HOST;
+    console.log(process.env.HOST);
     
     if(type == "register"){
         subject = "Activar Cuenta registrada";
-        text="Para activar tu cuenta haz click en el link: <a href='"+process.env.HOST+"/"+id+"'>activar aqui</a>";
+        text="Para activar tu cuenta haz click en el link: <a href='"+url1+"/activeAccount/"+id+"'>activar aqui</a>";
     }else{
         subject = "Recuperar contraseña";
-        text="Para recuperar la contraseña haz click en link: <a href='"+process.env.HOST+"/"+id+"'>modificar password</a>";
+        text="Para recuperar la contraseña haz click en link: <a href='"+url1+"/modifyPass/"+id+"'>modificar password</a>";
     }
     
     var mailOptions = {
