@@ -2,6 +2,7 @@ const User = require ('../models/userModel');
 const mail = require ("./emailController");
 
 exports.getUser = function (req,res) {
+    console.log('function getUser')
     User.find({}, function(err,user){
         if(err){
             return res.status(400).send("Error: "+ err.message);
@@ -16,6 +17,7 @@ exports.getUser = function (req,res) {
 }
 
 exports.getById = function(req,res){
+    console.log('function getById')
     console.log("ObjectID: "+req.params._id);
     User.find({_id:req.params._id}, function(err,user){
         if(err){
@@ -27,17 +29,15 @@ exports.getById = function(req,res){
 }
 
 exports.getUserByEmail = function(req,res) {
-    console.log("getUserByEmail");
+    console.log("function getUserByEmail");
     User.find({email:req.params.email}, function(err,user){
         if(err){
-            return res.status(400).send("Error: "+ err.message);
+            return res.status(400).send("Error: "+ err.message); 
         }
-/*
-else if (res.status==404){
-            return res.send("Error: el usuario no esta en ecncontrado");
+        else if(!user[0]){
+            return res.status(404).send({message: "No existen usuarios"});
         }
-*/
-
+        else if (err.estatus=0) {res.status.send({message:"No existe conexion"})}
         mail.sendEmail(req.params.email,user[0]._id, "recoverPass");
 
         console.log("user id: "+user[0]._id);
@@ -47,6 +47,7 @@ else if (res.status==404){
 
 
 exports.postUser = function (req,res) {
+    console.log('function postUser')
     var newUser = new User({
                             name: req.body.name,
                             email:req.body.email,
@@ -67,6 +68,7 @@ exports.postUser = function (req,res) {
 }
 
 exports.updateUser = function (req,res) {
+    console.log('function updateUser')
     var userId = req.params._id;
     var update = req.body;
     //    console.log(userId);
