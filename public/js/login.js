@@ -40,7 +40,8 @@ $(document).ready(function(){
             console.log("La solicitud se a completado");
             console.log(data);
             if(jqXHR.status == 204){
-                console.log(textStatus);
+                console.log("Email o contraseña incorrectos: "+textStatus);
+                $("#message").text("Email o contraseña incorrectos");
             }else{
                 location.href = baseUrl+"/admin";
             }
@@ -50,10 +51,10 @@ $(document).ready(function(){
 
             if(jqXHR.status == 403){
                 console.log(textStatus);
-            }else if(jqXHR.status == 403){
-                console.log(textStatus);
+                $("#message").text("Usuario no activado");
             }else if(jqXHR.status == 500){
                 console.log(textStatus);
+                $("#message").text("Error interno del servidor");
             }
 
         });

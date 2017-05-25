@@ -22,8 +22,8 @@ app.route("/user/:_id")
     .delete(userController.deleteUser)
     .get(userController.getById)
 
-app.route("/user/:email")
-    .post(userController.getUserByEmail)
+app.route("/recoverPass/:email")
+    .get(userController.getUserByEmail)
 
 app.route("/login")
     .post(loginController.postByEmail)

@@ -49,6 +49,10 @@ $(document).ready(function(){
         
         .fail(function( jqXHR, textStatus, errorThrown ) {
                 console.log( "Pass update failed: " +  textStatus);  
+            if(jqXHR.status == 400){
+                console.log("La solicitud contiene sintaxis errónea y no debería repetirse");
+                $("#message").text("Fallo al actualizar contraseña");
+            }
         });
 
     }

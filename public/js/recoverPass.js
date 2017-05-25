@@ -15,7 +15,7 @@ $(document).ready(function(){
         var endpoint = baseUrl + url;
         console.log(baseUrl+url);
         $("#message").text("Enviando email...");
-        startAjax(data, endpoint, "POST");
+        startAjax(data, endpoint, "GET");
     });
     
     function startAjax(data, url, type) {
