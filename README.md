@@ -8,7 +8,9 @@ Install node.js and start an app as npm start
 
 ### What can it do? ###
 
-* application CRUD with MongoDB
+* server part with nodejs, mongoDB
+* client par with jQuery, ajax, hadlebars
+* application CRUD with register, login, recover password
 * fields validation
 * oauth2 for sendmail
 
