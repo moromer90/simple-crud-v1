@@ -31,13 +31,14 @@ exports.getById = function(req,res){
 exports.getUserByEmail = function(req,res) {
     console.log("function getUserByEmail");
     User.find({email:req.params.email}, function(err,user){
+        console.log(err);
         if(err){
             return res.status(400).send("Error: "+ err.message); 
         }
         else if(!user[0]){
             return res.status(404).send({message: "No existen usuarios"});
         }
-        else if (err.estatus=0) {res.status.send({message:"No existe conexion"})}
+        // else if (err.status==null) {res.status.send({message:"No existe conexion"})}
         mail.sendEmail(req.params.email,user[0]._id, "recoverPass");
 
         console.log("user id: "+user[0]._id);
