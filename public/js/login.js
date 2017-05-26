@@ -1,4 +1,5 @@
 var baseUrl = document.location.origin;
+var ses_id;
 $(document).ready(function(){
     
     $("#register").attr("href", baseUrl+"/register");
@@ -39,11 +40,16 @@ $(document).ready(function(){
             .done(function( data, textStatus, jqXHR ) {
             console.log("La solicitud se a completado");
             console.log(data);
+            
             if(jqXHR.status == 204){
                 console.log("Email o contraseña incorrectos: "+textStatus);
                 $("#message").text("Email o contraseña incorrectos");
             }else{
-                location.href = baseUrl+"/admin";
+                ses_id = data[0]._id;
+                //console.log(ses_id);
+                sessionStorage.setItem('session', ses_id);
+                console.log(sessionStorage.getItem('session'))
+                //location.href = baseUrl+"/admin";
             }
 
         })
