@@ -4,8 +4,7 @@ Install node.js and start an app as npm start
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
+* Version 0.1
 
 ### What can it do? ###
 
