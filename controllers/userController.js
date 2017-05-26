@@ -52,19 +52,22 @@ exports.postUser = function (req,res) {
                             name: req.body.name,
                             email:req.body.email,
                             pass: req.body.pass
-
                            });
     console.log(newUser)
-    newUser.save(function(err,user){
-        if(err){
-            return res.status(400).send("Error: "+ err.message);
+    if (newUser.name=='' || newUser.email=='' || newUser.pass=='')
+        {   console.log('1 de campos esta vacio, rellena todos');  }
+    else {
+            newUser.save(function(err,user){
+                console.log('newUser.save(function(err,user)')
+                if(err){
+                    return res.status(400).send("Error: "+ err.message);
+                }
+                console.log("user id: "+user._id);
+                
+                mail.sendEmail(req.body.email,user._id,"register");
+                res.send(user);
+            });
         }
-        console.log("user id: "+user._id);
-        
-        mail.sendEmail(req.body.email,user._id,"register");
-        res.send(user);
-    });
-
 }
 
 exports.updateUser = function (req,res) {
