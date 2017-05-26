@@ -34,7 +34,11 @@ $(document).ready(function(){
         })
         .done(function( data, textStatus, jqXHR ) {
             console.log("pass send");
-            $("#message").text("Email enviado");
+            var timer = setTimeout(function() {
+                location.href = baseUrl+"/";
+                }, 10000);
+        $("#message").text("Email enviado, pulsa el enlace para hacer el login, o pargina se renova en "+10+" sec.");
+            
             
         })
         
