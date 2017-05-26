@@ -48,8 +48,8 @@ $(document).ready(function(){
                 ses_id = data[0]._id;
                 //console.log(ses_id);
                 sessionStorage.setItem('session', ses_id);
-                console.log(sessionStorage.getItem('session'))
-                //location.href = baseUrl+"/admin";
+                //console.log(sessionStorage.getItem('session'))
+                location.href = baseUrl+"/admin";
             }
 
         })
