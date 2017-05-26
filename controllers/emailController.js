@@ -36,8 +36,8 @@ exports.sendEmail = function(email,id,type,baseUrl){
     
     let subject;
     let text;
-    let url1=process.env.LOCALHOST;
-    console.log(process.env.LOCALHOST);
+    let url1=process.env.HOST;
+    console.log(process.env.HOST);
     
     if(type == "register"){
         subject = "Activar Cuenta registrada";
