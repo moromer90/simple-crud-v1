@@ -27,7 +27,7 @@ $(document).ready(function(){
         })
             .done(function( data, textStatus, jqXHR ) {
             console.log("User registered successfully");
-            $("#message").text("Usuario registrado");
+            $("#message").text("Usuario registrado y ahora mira a tu correo para activar la cuenta");
 
         })
 
