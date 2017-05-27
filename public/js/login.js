@@ -62,6 +62,9 @@ $(document).ready(function(){
             }else if(jqXHR.status == 500){
                 console.log(textStatus);
                 $("#message").text("Error interno del servidor");
+            }else if(jqXHR.status == 400){
+                console.log(textStatus);
+                $("#message").text("Campos vacios");
             }
 
         });

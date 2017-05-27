@@ -1,11 +1,16 @@
 const User = require ('../models/userModel')
 
 exports.postByEmail = function (req,res) {
+    console.log("Function postByEmail");
     console.log("Email: "+req.body.email);
     console.log("Pass: "+req.body.pass);
+    
+    if(!req.body.email || !req.body.pass){
+        return res.status(400).send("Error: "+ err.message);
+    }
     User.find({email:req.body.email,pass:req.body.pass}, function(err,user){
         if(err){
-            return res.status(400).send("Error: "+ err.message);
+            return res.status(500).send("Error: "+ err.message);
         }
         
         console.log("User length: "+user.length);
