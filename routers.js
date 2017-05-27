@@ -9,7 +9,7 @@ const recoverPass = require("./controllers/recoverPassController");
 const modifyPass = require("./controllers/modifyPassController");
 const activeAccount = require("./controllers/activeAccountController");
 const admin = require("./controllers/adminController");
-//const validation = require ('./middleware/middlewarevalidation');
+const validation = require ('./middleware/middlewarevalidation');
 //const validation = require("./middleware");
 
 //onsole.log(middlewarevalidation)
@@ -26,7 +26,7 @@ app.route("/recoverPass/:email")
     .get(userController.getUserByEmail)
 
 app.route("/login")
-    .post(loginController.postByEmail)
+    .post(validation, loginController.postByEmail)
 
 app.route("/")
     .get(loginController.getLoginView)
