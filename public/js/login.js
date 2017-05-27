@@ -23,6 +23,7 @@ $(document).ready(function(){
 
             var url = "/login";
             console.log("url: "+url);
+            console.log(data);
             startAjax(data, url, "POST");
         }
 
@@ -46,9 +47,9 @@ $(document).ready(function(){
                 $("#message").text("Email o contraseña incorrectos");
             }else{
                 ses_id = data[0]._id;
-                //console.log(ses_id);
+                console.log(ses_id);
                 sessionStorage.setItem('session', ses_id);
-                //console.log(sessionStorage.getItem('session'))
+                console.log(sessionStorage.getItem('session'))
                 location.href = baseUrl+"/admin";
             }
 
