@@ -6,7 +6,8 @@ exports.postByEmail = function (req,res) {
     console.log("Pass: "+req.body.pass);
     
     if(!req.body.email || !req.body.pass){
-        return res.status(400).send("Error: "+ err.message);
+        console.log("email o contraseña vacios");
+        return res.status(400).send();
     }
     User.find({email:req.body.email,pass:req.body.pass}, function(err,user){
         if(err){
@@ -14,7 +15,7 @@ exports.postByEmail = function (req,res) {
         }
         
         console.log("User length: "+user.length);
-        console.log("User: "+user);
+        
         
         if(!user[0]){
             console.log("User vacio");
@@ -23,6 +24,7 @@ exports.postByEmail = function (req,res) {
             console.log("Usuario no activado");
             return res.status(403).send(err);
         }
+        console.log("User: "+user);
         
         return res.send(user);
     });

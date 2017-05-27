@@ -1,7 +1,7 @@
 var baseUrl = document.location.origin;
 var ses_id;
 $(document).ready(function(){
-    
+
     $("#register").attr("href", baseUrl+"/register");
     $("#recoverPass").attr("href", baseUrl+"/recoverPass");
     $("#login").click(function() {   
@@ -13,19 +13,15 @@ $(document).ready(function(){
         var pass = $("#pass").val();
         console.log("pass: "+pass);
 
-        if(!email || !pass){
-            console.log("email o contraseña vacios");
-        }else{
+        var data= {email:email,
+                   pass:pass
+                  }
 
-            var data= {email:email,
-                       pass:pass
-                      }
+        var url = "/login";
+        console.log("url: "+url);
+        console.log(data);
+        startAjax(data, url, "POST");
 
-            var url = "/login";
-            console.log("url: "+url);
-            console.log(data);
-            startAjax(data, url, "POST");
-        }
 
     });
 
@@ -41,29 +37,29 @@ $(document).ready(function(){
             .done(function( data, textStatus, jqXHR ) {
             console.log("La solicitud se a completado");
             console.log(data);
-            
+
             if(jqXHR.status == 204){
-                console.log("Email o contraseña incorrectos: "+textStatus);
+                console.log("Email o contraseña incorrectos: ");
                 $("#message").text("Email o contraseña incorrectos");
             }else{
                 ses_id = data[0]._id;
                 console.log(ses_id);
                 sessionStorage.setItem('session', ses_id);
-                console.log(sessionStorage.getItem('session'))
+                console.log(sessionStorage.getItem('session'));
                 location.href = baseUrl+"/admin";
             }
 
         })
             .fail(function( jqXHR, textStatus, errorThrown ) {
-
+            console.log("La solicitud es erronea");
             if(jqXHR.status == 403){
-                console.log(textStatus);
+                console.log("Usuario no activado");
                 $("#message").text("Usuario no activado");
             }else if(jqXHR.status == 500){
-                console.log(textStatus);
+                console.log("Error interno del servidor");
                 $("#message").text("Error interno del servidor");
             }else if(jqXHR.status == 400){
-                console.log(textStatus);
+                console.log("Campos vacios");
                 $("#message").text("Campos vacios");
             }
 

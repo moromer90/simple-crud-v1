@@ -1,6 +1,6 @@
 exports.getAdminView = function(req,res){
     res.render('../views/admin.hbs',{
-    pageTitle:"Admin",
+    pageTitle:"Admin"
 //    content:"Contenido de la página"
     });
         

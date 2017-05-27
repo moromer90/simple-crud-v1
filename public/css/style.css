@@ -89,6 +89,10 @@ html,body{
     border-top: 1;
 }
 
+.form-box input[type="button"]{
+    background-color: #369aef;
+}
+
 .form-box button.login{
     margin-top:15px;
     padding: 10px 20px;
