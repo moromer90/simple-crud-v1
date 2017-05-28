@@ -18,7 +18,7 @@ app.route("/user")
     .post(validation, userController.postUser)
          
 app.route("/user/:_id")
-    .put(userController.updateUser)
+    .put(validation, userController.updateUser)
     .delete(userController.deleteUser)
     .get(userController.getById)
 
@@ -26,7 +26,7 @@ app.route("/recoverPass/:email")
     .get(userController.getUserByEmail)
 
 app.route("/login")
-    .post(loginController.postByEmail)
+    .post(validation, loginController.postByEmail)
 
 app.route("/")
     .get(loginController.getLoginView)
