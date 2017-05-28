@@ -13,20 +13,20 @@ $(document).ready(function(){
         var pass = $("#pass").val();
         console.log("pass: "+pass);
 
-        if(!email || !pass){
+/*        if(!email || !pass){
             console.log("email o contraseña vacios");
+            $("#message").text("Email o contraseña incorrectos");
         }else{
-
+*/
             var data= {email:email,
                        pass:pass
                       }
-
             var url = "/login";
             console.log("url: "+url);
             console.log(data);
             startAjax(data, url, "POST");
-        }
-
+ /*       }*/
+            startAjax(data, url, "POST");
     });
 
     function startAjax(data, url, type) {

@@ -59,8 +59,9 @@ exports.postUser = function (req,res) {
         {   console.log('1 de campos esta vacio, rellena todos');  }
     else {
             newUser.save(function(err,user){
-                console.log('newUser.save(function(err,user)')
+                console.log('newUser.save')
                 if(err){
+                    console.log('newUser.save -> itself generates failure')
                     return res.status(400).send("Error: "+ err.message);
                 }
                 console.log("user id: "+user._id);

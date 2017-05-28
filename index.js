@@ -8,7 +8,7 @@ const bodyparser =  require ('body-parser');
 const routers = require('./routers');
 var {ObjectID} = require ('mongodb');
 const hbs = require('hbs');
-const mongodbRoute = process.env.MONGODBROUTE; //MONGODBLOCAL || MONGODBROUTE
+const mongodbRoute = process.env.MONGODBLOCAL; //MONGODBLOCAL || MONGODBROUTE
 
 
 const app = express();

@@ -15,7 +15,7 @@ const validation = require ('./middleware/middlewarevalidation');
 //onsole.log(middlewarevalidation)
 app.route("/user")
     .get(userController.getUser)
-    .post(userController.postUser)
+    .post(validation, userController.postUser)
          
 app.route("/user/:_id")
     .put(userController.updateUser)
@@ -26,13 +26,12 @@ app.route("/recoverPass/:email")
     .get(userController.getUserByEmail)
 
 app.route("/login")
-    .post(validation, loginController.postByEmail)
+    .post(loginController.postByEmail)
 
 app.route("/")
     .get(loginController.getLoginView)
 
 app.route("/register")
-
     .get(userRegister.getRegisterView)
    // .post(userRegister.postRegister)
 
