@@ -13,11 +13,11 @@ $(document).ready(function(){
         var pass = $("#pass").val();
         console.log("pass: "+pass);
 
-/*        if(!email || !pass){
-            console.log("email o contraseña vacios");
+       if(!email || !pass){
             $("#message").text("Email o contraseña incorrectos");
+            console.log("email o contraseña vacios");
+            return false; //con esta cadena pagina no se recarga despues de click de boton si formulario vacio
         }else{
-*/
             var data= {email:email,
                        pass:pass
                       }
@@ -25,8 +25,7 @@ $(document).ready(function(){
             console.log("url: "+url);
             console.log(data);
             startAjax(data, url, "POST");
- /*       }*/
-            startAjax(data, url, "POST");
+        }
     });
 
     function startAjax(data, url, type) {
@@ -39,7 +38,7 @@ $(document).ready(function(){
             dataType: "json"
         })
             .done(function( data, textStatus, jqXHR ) {
-            console.log("La solicitud se a completado");
+            console.log("Ajax done y La solicitud se a completado");
             console.log(data);
             
             if(jqXHR.status == 204){
