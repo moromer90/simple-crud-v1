@@ -13,21 +13,24 @@ $(document).ready(function(){
         var pass = $("#pass").val();
         console.log("pass: "+pass);
 
-        var data= {email:email,
-                   pass:pass
-                  }
-
-        var url = "/login";
-        console.log("url: "+url);
-        console.log(data);
-        startAjax(data, url, "POST");
-
-
+       if(!email || !pass){
+            $("#message").text("Email o contraseña incorrectos");
+            console.log("email o contraseña vacios");
+            return false; //con esta cadena pagina no se recarga despues de click de boton si formulario vacio
+        }else{
+            var data= {email:email,
+                       pass:pass
+                      }
+            var url = "/login";
+            console.log("url: "+url);
+            console.log(data);
+            startAjax(data, url, "POST");
+        }
     });
 
     function startAjax(data, url, type) {
         console.log("entramos a ajax");
-        console.log("url completa: "+baseUrl+url);
+        // console.log("url completa: "+baseUrl+url);
         $.ajax({
             url: baseUrl + url,
             data: data,
@@ -35,12 +38,15 @@ $(document).ready(function(){
             dataType: "json"
         })
             .done(function( data, textStatus, jqXHR ) {
-            console.log("La solicitud se a completado");
-            console.log(data);
-
+            console.log("Ajax done y La solicitud se a completado");
+            console.log('data: '+data);
+            console.log('textStatus: '+textStatus);
+            console.log('jqXHR: '+jqXHR);
+            
             if(jqXHR.status == 204){
-                console.log("Email o contraseña incorrectos: ");
-                $("#message").text("Email o contraseña incorrectos");
+                console.log("Email no existe o contraseña es invalido: "+textStatus);
+                $("#message").text("Email no existe o contraseña es invalido");
+                return false; //con esta cadena pagina no se recarga despues de click de boton si formulario vacio
             }else{
                 ses_id = data[0]._id;
                 console.log(ses_id);
@@ -55,6 +61,7 @@ $(document).ready(function(){
             if(jqXHR.status == 403){
                 console.log("Usuario no activado");
                 $("#message").text("Usuario no activado");
+                return false; //con esta cadena pagina no se recarga despues de click de boton si formulario vacio
             }else if(jqXHR.status == 500){
                 console.log("Error interno del servidor");
                 $("#message").text("Error interno del servidor");
