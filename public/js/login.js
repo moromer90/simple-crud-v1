@@ -62,8 +62,8 @@ $(document).ready(function(){
                 console.log("Usuario no activado");
                 $("#message").text("Usuario no activado");
                 return false; //con esta cadena pagina no se recarga despues de click de boton si formulario vacio
-            }else if(jqXHR.status == 500){
-                console.log("Error interno del servidor");
+            }else if(jqXHR.status == 404){
+                console.log("No hay tal usuario.");
                 $("#message").text("Error interno del servidor");
             }else if(jqXHR.status == 400){
                 console.log("Campos vacios");

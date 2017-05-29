@@ -14,7 +14,7 @@ exports.postByEmail = function (req,res) {
     User.find({email:req.body.email,pass:req.body.pass}, function(err,user){
         console.log('postByEmail -> User.find');
         if(err){
-            return res.status(500).send("Error: "+ err.message);
+            return res.status(404).send("Error: "+ err.message);
         }
 
         /*console.log("User length: "+user.length);
